@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Services', href: '#services' },
-  { label: 'Team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -90,7 +89,18 @@ export default function Navbar() {
                 <a
                   key={link.href + link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileOpen(false)
+                    const target = link.href === '#' ? null : document.querySelector(link.href)
+                    setTimeout(() => {
+                      if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' })
+                      } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                      }
+                    }, 300)
+                  }}
                   className="block text-lg font-medium text-slate-600 hover:text-primary transition-colors"
                 >
                   {link.label}
