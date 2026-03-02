@@ -44,7 +44,7 @@ const fadeUp = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-neutral-50">
+    <section className="py-14 sm:py-24 bg-neutral-50" aria-label="Why Choose ProAccountant.tech" id="why-choose-us">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -57,12 +57,13 @@ export default function WhyChooseUs() {
           <h2 className="text-sm font-bold text-accent-gold uppercase tracking-widest mb-3">
             Why Choose Us
           </h2>
-          <h3 className="text-3xl md:text-4xl font-black text-primary mb-6">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-6" data-geo-summary="true">
             Financial Clarity, Not Just Compliance.
           </h3>
-          <p className="text-slate-600">
-            Most accountants record history. We help you make it. Our approach combines
-            rigorous accounting standards with forward-looking strategic advice.
+          <p className="text-slate-600" data-geo-definition="true">
+            Most accountants record history. We help you make it. ProAccountant.tech combines
+            rigorous CPA-standard accounting with forward-looking strategic advisory, leveraging
+            modern fintech tools like QuickBooks and Xero to deliver real-time financial insights.
           </p>
         </motion.div>
 

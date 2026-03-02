@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import WhyChooseUs from './components/WhyChooseUs'
 import Services from './components/Services'
 import Team from './components/Team'
+import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -15,6 +16,7 @@ function App() {
         <WhyChooseUs />
         <Services />
         <Team />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

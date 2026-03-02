@@ -5,6 +5,7 @@ const services = [
     num: '01',
     icon: 'account_balance_wallet',
     title: 'Fractional CFO',
+    description: 'Part-time CFO leadership providing strategic planning, cash flow forecasting, and board-level reporting for scaling businesses.',
     items: ['Strategic Planning & Forecasting', 'Cash Flow Management', 'Board Reporting'],
     highlighted: false,
   },
@@ -12,6 +13,7 @@ const services = [
     num: '02',
     icon: 'receipt_long',
     title: 'Accounting & Tax',
+    description: 'Comprehensive bookkeeping, corporate tax filing, and sales tax compliance to keep your financials audit-ready year-round.',
     items: ['Monthly Bookkeeping', 'Corporate Tax Filing', 'Sales Tax Compliance'],
     highlighted: true,
   },
@@ -19,6 +21,7 @@ const services = [
     num: '03',
     icon: 'analytics',
     title: 'Advisory & Audit',
+    description: 'Financial modeling, due diligence for fundraising or M&A, and internal controls to prepare your business for the next stage.',
     items: ['Financial Modeling', 'Due Diligence Support', 'Internal Controls'],
     highlighted: false,
   },
@@ -35,7 +38,7 @@ const fadeUp = {
 
 export default function Services() {
   return (
-    <section className="py-24 bg-white" id="services">
+    <section className="py-14 sm:py-24 bg-white" id="services" aria-label="ProAccountant.tech Services — Fractional CFO, Accounting & Tax, Advisory & Audit">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -46,9 +49,11 @@ export default function Services() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-black text-primary mb-4">Our Expertise</h2>
-            <p className="text-slate-600 text-lg">
-              Comprehensive financial solutions tailored for every stage of your business lifecycle.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-4">Our Expertise</h2>
+            <p className="text-slate-600 text-lg" data-geo-definition="true">
+              ProAccountant.tech offers three core service lines — Fractional CFO, Accounting &amp; Tax,
+              and Advisory &amp; Audit — tailored for every stage of your business lifecycle, from
+              seed-stage startups to established enterprises.
             </p>
           </div>
           <a className="hidden md:flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all" href="#">
@@ -57,7 +62,7 @@ export default function Services() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid lg:grid-cols-3 gap-0 border-t border-l border-slate-200">
+        <div className="grid lg:grid-cols-3 gap-0 border-t lg:border-l border-slate-200">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -66,7 +71,7 @@ export default function Services() {
               whileInView="visible"
               viewport={{ once: true, margin: '-50px' }}
               custom={i + 1}
-              className={`p-10 border-r border-b border-slate-200 transition-colors group ${
+              className={`p-6 sm:p-10 border-b border-slate-200 lg:border-r transition-colors group ${
                 service.highlighted ? 'bg-primary text-white' : 'hover:bg-neutral-50'
               }`}
             >
@@ -84,11 +89,16 @@ export default function Services() {
                   <span className="material-symbols-outlined">{service.icon}</span>
                 </div>
               </div>
-              <h3 className={`text-2xl font-bold mb-4 ${
+              <h3 className={`text-2xl font-bold mb-2 ${
                 service.highlighted ? 'text-white' : 'text-primary'
               }`}>
                 {service.title}
               </h3>
+              <p className={`text-sm mb-4 ${
+                service.highlighted ? 'text-slate-300' : 'text-slate-500'
+              }`} data-geo-definition="true">
+                {service.description}
+              </p>
               <ul className="space-y-3 mb-8">
                 {service.items.map((item) => (
                   <li key={item} className={`flex items-start gap-2 text-sm ${

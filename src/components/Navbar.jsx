@@ -5,6 +5,7 @@ const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Services', href: '#services' },
   { label: 'Team', href: '#team' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export default function Navbar() {
@@ -20,7 +21,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-neutral-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
             <div className="bg-primary p-2 rounded-lg shadow-lg">
@@ -55,6 +56,7 @@ export default function Navbar() {
               href="https://cal.com/usama-mo7xl5"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Book a free consultation with ProAccountant"
               className="hidden sm:inline-block bg-accent-gold text-primary hover:bg-white hover:text-accent-gold hover:ring-2 hover:ring-accent-gold px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md transform hover:scale-105"
             >
               Book Free Consultation

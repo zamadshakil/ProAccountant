@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-20 pb-10">
+    <footer className="bg-white border-t border-slate-100 pt-12 sm:pt-20 pb-10" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
@@ -15,8 +15,10 @@ export default function Footer() {
                 PROACCOUNTANT<span className="text-accent-gold">.TECH</span>
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Empowering businesses with financial clarity and strategic direction. Your partner in sustainable growth.
+            <p className="text-slate-500 text-sm leading-relaxed" data-geo-definition="true">
+              ProAccountant.tech is a CPA-led accounting firm providing Fractional CFO, tax
+              strategy, bookkeeping, and financial advisory services. Founded by Usama Umer,
+              serving 500+ clients globally with $2B+ in managed assets.
             </p>
           </div>
 
@@ -36,6 +38,7 @@ export default function Footer() {
             <h4 className="font-bold text-primary mb-6">Company</h4>
             <ul className="space-y-4 text-sm text-slate-500">
               <li><Link className="hover:text-accent-gold transition-colors" to="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link className="hover:text-accent-gold transition-colors" to="/terms-of-service">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -65,7 +68,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} ProAccountant.tech. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-slate-400">
-            <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            <Link className="hover:text-primary transition-colors" to="/terms-of-service">Terms of Service</Link>
             <Link className="hover:text-primary transition-colors" to="/privacy-policy">Privacy Policy</Link>
           </div>
         </div>
