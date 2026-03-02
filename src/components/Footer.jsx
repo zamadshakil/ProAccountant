@@ -16,14 +16,6 @@ export default function Footer() {
             <p className="text-slate-500 text-sm leading-relaxed">
               Empowering businesses with financial clarity and strategic direction. Your partner in sustainable growth.
             </p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
-                <span className="material-symbols-outlined text-lg">public</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
-                <span className="material-symbols-outlined text-lg">alternate_email</span>
-              </a>
-            </div>
           </div>
 
           {/* Services */}
@@ -41,9 +33,6 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-primary mb-6">Company</h4>
             <ul className="space-y-4 text-sm text-slate-500">
-              <li><a className="hover:text-accent-gold transition-colors" href="#">About Us</a></li>
-              <li><a className="hover:text-accent-gold transition-colors" href="#team">Meet the Team</a></li>
-              <li><a className="hover:text-accent-gold transition-colors" href="#">Careers</a></li>
               <li><a className="hover:text-accent-gold transition-colors" href="#">Privacy Policy</a></li>
             </ul>
           </div>
