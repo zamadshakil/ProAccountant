@@ -1,53 +1,84 @@
-import { motion } from 'framer-motion'
-
-const footerLinks = [
-    { label: 'Approach', href: '#philosophy' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' },
-]
-
 export default function Footer() {
-    return (
-        <footer className="relative border-t border-white/5">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                    {/* Brand */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        className="flex flex-col items-center md:items-start gap-2"
-                    >
-                        <a
-                            href="#"
-                            className="font-heading font-bold text-lg text-white hover:text-accent transition-colors"
-                        >
-                            proaccountant<span className="text-accent">.</span>tech
-                        </a>
-                        <p className="text-xs text-slate-light/40">
-                            Strategic Financial Advisory
-                        </p>
-                    </motion.div>
-
-                    {/* Links */}
-                    <div className="flex items-center gap-8">
-                        {footerLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className="text-sm text-slate-light/50 hover:text-white transition-colors duration-300"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
-
-                    {/* Copyright */}
-                    <p className="text-xs text-slate-light/30">
-                        &copy; {new Date().getFullYear()} ProAccountant. All rights reserved.
-                    </p>
-                </div>
+  return (
+    <footer className="bg-white border-t border-slate-100 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          {/* Brand */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <div className="bg-primary p-1.5 rounded-lg">
+                <span className="material-symbols-outlined text-white text-xl">account_balance</span>
+              </div>
+              <span className="text-lg font-extrabold tracking-tight text-primary uppercase">
+                PROACCOUNTANT<span className="text-accent-gold">.TECH</span>
+              </span>
             </div>
-        </footer>
-    )
+            <p className="text-slate-500 text-sm leading-relaxed">
+              Empowering businesses with financial clarity and strategic direction. Your partner in sustainable growth.
+            </p>
+            <div className="flex gap-4">
+              <a className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+                <span className="material-symbols-outlined text-lg">public</span>
+              </a>
+              <a className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+                <span className="material-symbols-outlined text-lg">alternate_email</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-bold text-primary mb-6">Services</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><a className="hover:text-accent-gold transition-colors" href="#services">Fractional CFO</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#services">Tax Preparation</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#services">Bookkeeping</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#services">Payroll Services</a></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-bold text-primary mb-6">Company</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><a className="hover:text-accent-gold transition-colors" href="#">About Us</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#team">Meet the Team</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#">Careers</a></li>
+              <li><a className="hover:text-accent-gold transition-colors" href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-bold text-primary mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-accent-gold text-lg mt-0.5">location_on</span>
+                <span>Remote First / Global<br />Registered CPA Firm</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-accent-gold text-lg">call</span>
+                <a className="hover:text-primary transition-colors" href="tel:+923217575552">+92 321 7575552</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-accent-gold text-lg">mail</span>
+                <a className="hover:text-primary transition-colors" href="mailto:usama5228@gmail.com">usama5228@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-400 text-center md:text-left">
+            &copy; {new Date().getFullYear()} ProAccountant.tech. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs text-slate-400">
+            <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
 }

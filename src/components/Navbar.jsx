@@ -1,101 +1,112 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-    { label: 'Approach', href: '#philosophy' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '#' },
+  { label: 'Services', href: '#services' },
+  { label: 'Team', href: '#team' },
 ]
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false)
-    const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50)
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-    return (
-        <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? 'bg-navy/80 backdrop-blur-xl border-b border-white/5'
-                    : 'bg-transparent'
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20">
-                    {/* Brand */}
-                    <a
-                        href="#"
-                        className="font-heading font-bold text-xl tracking-tight text-white hover:text-accent transition-colors"
-                    >
-                        proaccountant<span className="text-accent">.</span>tech
-                    </a>
-
-                    {/* Desktop Links */}
-                    <div className="hidden md:flex items-center gap-10">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className="text-sm font-medium text-slate-light hover:text-white transition-colors duration-300 tracking-wide uppercase"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                        <a
-                            href="#contact"
-                            className="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold text-white tracking-wide"
-                        >
-                            Get Started
-                        </a>
-                    </div>
-
-                    {/* Mobile Toggle */}
-                    <button
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        className="md:hidden text-white p-2"
-                        aria-label="Toggle menu"
-                    >
-                        {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
+  return (
+    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-neutral-100 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-24">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3">
+            <div className="bg-primary p-2 rounded-lg shadow-lg">
+              <span className="material-symbols-outlined text-accent-gold text-2xl">account_balance</span>
             </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-black tracking-tight text-primary uppercase leading-none">PROACCOUNTANT</span>
+              <span className="text-xs font-semibold tracking-[0.2em] text-accent-gold uppercase leading-none mt-0.5">TECH</span>
+            </div>
+          </a>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {mobileOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-navy/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
-                    >
-                        <div className="px-6 py-6 space-y-4">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={() => setMobileOpen(false)}
-                                    className="block text-lg font-medium text-slate-light hover:text-white transition-colors"
-                                >
-                                    {link.label}
-                                </a>
-                            ))}
-                            <a
-                                href="#contact"
-                                onClick={() => setMobileOpen(false)}
-                                className="btn-primary block text-center px-6 py-3 rounded-lg text-sm font-semibold text-white mt-4"
-                            >
-                                Get Started
-                            </a>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
-    )
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex space-x-12">
+            {navLinks.map((link) => (
+              <a
+                key={link.href + link.label}
+                href={link.href}
+                className="text-sm font-medium text-slate-600 hover:text-primary hover:font-semibold transition-all"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right side */}
+          <div className="flex items-center gap-4">
+            <a className="hidden lg:flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-primary" href="tel:+923217575552">
+              <span className="material-symbols-outlined text-accent-gold text-lg">call</span>
+              <span>+92 321 7575552</span>
+            </a>
+            <a
+              href="https://cal.com/usama-mo7xl5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-block bg-accent-gold text-primary hover:bg-white hover:text-accent-gold hover:ring-2 hover:ring-accent-gold px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md transform hover:scale-105"
+            >
+              Book Free Consultation
+            </a>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden p-2 text-slate-600"
+              aria-label="Toggle menu"
+            >
+              <span className="material-symbols-outlined text-2xl">
+                {mobileOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-b border-neutral-100 overflow-hidden"
+          >
+            <div className="px-6 py-6 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href + link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-lg font-medium text-slate-600 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="https://cal.com/usama-mo7xl5"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="block text-center bg-accent-gold text-primary px-6 py-3 rounded-full font-bold text-sm mt-4"
+              >
+                Book Free Consultation
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  )
 }

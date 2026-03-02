@@ -1,168 +1,109 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
-
-function FloatingShape({ className, delay = 0 }) {
-    return (
-        <motion.div
-            className={`absolute pointer-events-none ${className}`}
-            animate={{
-                y: [0, -30, 0],
-                rotate: [0, 5, -5, 0],
-                scale: [1, 1.05, 1],
-            }}
-            transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay,
-            }}
-        />
-    )
-}
 
 export default function Hero() {
-    return (
-        <section
-            id="hero"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient-strong"
-        >
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                {/* Geometric SVGs */}
-                <FloatingShape
-                    className="top-[15%] left-[10%] w-32 h-32 md:w-48 md:h-48 opacity-[0.04]"
-                    delay={0}
-                >
-                    <svg viewBox="0 0 200 200" fill="none">
-                        <rect
-                            x="20"
-                            y="20"
-                            width="160"
-                            height="160"
-                            rx="8"
-                            stroke="#2563FF"
-                            strokeWidth="1.5"
-                        />
-                    </svg>
-                </FloatingShape>
+  return (
+    <section className="relative bg-white overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32">
+      {/* Background blurs */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-accent-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
-                <FloatingShape
-                    className="top-[25%] right-[8%] w-40 h-40 md:w-56 md:h-56 opacity-[0.05]"
-                    delay={2}
-                >
-                    <svg viewBox="0 0 200 200" fill="none">
-                        <circle cx="100" cy="100" r="80" stroke="#2563FF" strokeWidth="1" />
-                        <circle cx="100" cy="100" r="50" stroke="#F59E0B" strokeWidth="0.75" />
-                    </svg>
-                </FloatingShape>
-
-                <FloatingShape
-                    className="bottom-[20%] left-[15%] w-36 h-36 md:w-44 md:h-44 opacity-[0.03]"
-                    delay={4}
-                >
-                    <svg viewBox="0 0 200 200" fill="none">
-                        <polygon
-                            points="100,10 190,150 10,150"
-                            stroke="#2563FF"
-                            strokeWidth="1"
-                        />
-                    </svg>
-                </FloatingShape>
-
-                <FloatingShape
-                    className="bottom-[30%] right-[20%] w-24 h-24 md:w-36 md:h-36 opacity-[0.04]"
-                    delay={1}
-                >
-                    <svg viewBox="0 0 200 200" fill="none">
-                        <line x1="10" y1="10" x2="190" y2="190" stroke="#F59E0B" strokeWidth="0.75" />
-                        <line x1="190" y1="10" x2="10" y2="190" stroke="#2563FF" strokeWidth="0.75" />
-                    </svg>
-                </FloatingShape>
-
-                {/* Glow orbs */}
-                <motion.div
-                    className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-accent/5 blur-[120px]"
-                    animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.2, 1] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <motion.div
-                    className="absolute bottom-1/4 right-1/3 w-72 h-72 rounded-full bg-gold/5 blur-[100px]"
-                    animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.15, 1] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          {/* Left Content */}
+          <motion.div
+            className="lg:w-1/2 text-center lg:text-left space-y-8"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 text-accent-gold text-xs font-bold uppercase tracking-wider border border-accent-gold/20">
+              <span className="w-2 h-2 rounded-full bg-accent-gold animate-pulse" />
+              Accepting New Clients for 2024
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                    {/* Tagline */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8"
-                    >
-                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                        <span className="text-sm font-medium text-slate-light tracking-wide">
-                            Strategic Financial Advisory
-                        </span>
-                    </motion.div>
+            {/* Headline */}
+            <h1 className="text-5xl lg:text-7xl font-black text-primary tracking-tight leading-[1.1]">
+              Strategic Finance for <br />
+              <span className="relative inline-block">
+                <span className="relative z-10 text-accent-gold">Modern Business</span>
+                <span className="absolute bottom-2 left-0 w-full h-3 bg-primary/10 -rotate-1 z-0" />
+              </span>
+            </h1>
 
-                    {/* Main Headline */}
-                    <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1] tracking-tight mb-8">
-                        <span className="text-gradient">Take Command</span>
-                        <br />
-                        <span className="text-gradient">of Your</span>
-                        <br />
-                        <span className="text-gradient-accent">Business Finances</span>
-                    </h1>
+            {/* Description */}
+            <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+              We provide Fractional CFO, tax strategy, and pristine bookkeeping for growing
+              companies. Stop stressing about the numbers and start focusing on your vision.
+            </p>
 
-                    {/* Subhead */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="max-w-2xl mx-auto text-base md:text-lg text-slate-light/80 leading-[1.8] mb-12 font-normal"
-                    >
-                        Proactive financial modeling, strategic advisory, and fractional
-                        CFO services—engineered for businesses ready to scale.
-                    </motion.p>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+              <a
+                href="https://cal.com/usama-mo7xl5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-primary/20 hover:bg-primary/90 hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+              >
+                Start Your Growth Journey
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
 
-                    {/* CTA */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.7 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                    >
-                        <a
-                            href="https://cal.com/usama-mo7xl5"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-primary px-10 py-4 rounded-xl text-base font-semibold text-white tracking-wide glow-accent-sm"
-                        >
-                            Schedule a Consultation
-                        </a>
-                        <a
-                            href="#philosophy"
-                            className="group flex items-center gap-2 px-6 py-4 text-sm font-medium text-slate-light hover:text-white transition-colors"
-                        >
-                            Discover Our Approach
-                            <ArrowDown
-                                size={16}
-                                className="group-hover:translate-y-0.5 transition-transform"
-                            />
-                        </a>
-                    </motion.div>
-                </motion.div>
             </div>
 
-            {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy to-transparent" />
-        </section>
-    )
+            {/* Industry tags */}
+            <div className="pt-8 flex items-center justify-center lg:justify-start gap-8 text-slate-400 grayscale opacity-70">
+              <span className="text-xl font-bold tracking-tighter">FINTECH</span>
+              <span className="text-xl font-bold tracking-tighter">SAAS</span>
+              <span className="text-xl font-bold tracking-tighter">ECOMMERCE</span>
+              <span className="text-xl font-bold tracking-tighter">AGENCIES</span>
+            </div>
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div
+            className="lg:w-1/2 relative"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <div className="relative z-10">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-accent-gold to-primary opacity-20 blur-xl rounded-[2rem]" />
+              <img
+                alt="Consultation in a modern office"
+                className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/3] border-4 border-white"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuACFwbU_BdaRoPoi0Q8ABAwGxYaS3B2K_qjq0Bn0be-E9acmySR9fkohcv_bB9MstKANT-ucPReslSU5XhxgdrlGzxZ8AYuDcTioVqF7Lpi84j6DjcEe8Ecs5q7myuRUJpY-2I0b9hn5y-_ALKeNSBVk8jRPvhQ4r8mqpFNL0a8jMaRsHAe4MyqAF9kIwbig7nfPu5KN18-MWEOMtZoCj9YhnnvyCx5jjCSg1PXIUh1xvZyDSm_AIBYjlgYwHYpSZ2AuA2-k9fxqow"
+              />
+
+              {/* Floating Card - Revenue Growth */}
+              <div
+                className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce"
+                style={{ animationDuration: '3s' }}
+              >
+                <div className="bg-green-100 p-3 rounded-lg text-green-600">
+                  <span className="material-symbols-outlined">trending_up</span>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Revenue Growth</p>
+                  <p className="text-xl font-black text-primary">+127%</p>
+                </div>
+              </div>
+
+              {/* Floating Card - Tax Savings */}
+              <div className="absolute top-10 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex flex-col gap-2 max-w-[160px] transform rotate-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-bold text-slate-500">Tax Savings</span>
+                  <span className="material-symbols-outlined text-accent-gold text-sm">savings</span>
+                </div>
+                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-accent-gold w-[85%] rounded-full" />
+                </div>
+                <p className="text-sm font-bold text-primary">Optimized</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
 }
